@@ -33,7 +33,6 @@
         <spring-cloud-consul.version>2.2.4.RELEASE</spring-cloud-consul.version>
         <spring-cloud-config.version>2.2.5.RELEASE</spring-cloud-config.version>
         <spring-cloud-zookeeper.version>2.2.3.RELEASE</spring-cloud-zookeeper.version>
-
         <spring-cloud-alibaba.version>2.2.2.RELEASE</spring-cloud-alibaba.version>
 
         <!-- Apache Dubbo -->
@@ -244,28 +243,6 @@
                 <groupId>io.spring.javaformat</groupId>
                 <artifactId>spring-javaformat-maven-plugin</artifactId>
             </plugin>
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-checkstyle-plugin</artifactId>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<id>checkstyle-validation</id>-->
-                        <!--<phase>validate</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>check</goal>-->
-                        <!--</goals>-->
-                        <!--<configuration>-->
-                            <!--&lt;!&ndash; Checkstyle rules inherited from spring-cloud-build &ndash;&gt;-->
-                            <!--<suppressionsLocation>${session.executionRootDirectory}/eclipse/checkstyle-suppressions.xml</suppressionsLocation>-->
-                            <!--<includeTestSourceDirectory>true</includeTestSourceDirectory>-->
-                            <!--<consoleOutput>true</consoleOutput>-->
-                            <!--<failsOnError>true</failsOnError>-->
-                            <!--<failOnViolation>true</failOnViolation>-->
-                            <!--<violationSeverity>warning</violationSeverity>-->
-                        <!--</configuration>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

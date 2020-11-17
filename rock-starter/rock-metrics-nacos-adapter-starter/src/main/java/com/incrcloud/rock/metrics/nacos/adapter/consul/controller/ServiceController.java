@@ -1,14 +1,11 @@
 package com.incrcloud.rock.metrics.nacos.adapter.consul.controller;
 
-import com.incrcloud.rock.metrics.nacos.adapter.consul.model.ChangeItem;
 import com.incrcloud.rock.metrics.nacos.adapter.consul.service.RegistrationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.util.LinkedMultiValueMap;

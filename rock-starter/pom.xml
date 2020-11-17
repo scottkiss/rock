@@ -18,6 +18,9 @@
     <modules>
         <module>rock-protection-starter</module>
         <module>rock-discovery-starter</module>
+        <module>rock-config-starter</module>
+        <module>rock-tracing-starter</module>
+        <module>rock-loging-starter</module>
         <module>rock-metrics-starter</module>
         <module>rock-metrics-nacos-adapter-starter</module>
     </modules>
