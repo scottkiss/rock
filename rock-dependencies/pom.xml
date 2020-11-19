@@ -23,6 +23,7 @@
         <micrometer-registry-prometheus.version>1.5.5</micrometer-registry-prometheus.version>
         <spring-boot-admin-starter-client.version>2.3.1</spring-boot-admin-starter-client.version>
         <spring-boot-starter-actuator.version>2.3.4.RELEASE</spring-boot-starter-actuator.version>
+        <apollo.version>1.1.0</apollo.version>
         <!-- Maven Plugin Versions -->
         <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
         <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
@@ -68,6 +69,11 @@
             <version>${skywalking.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.ctrip.framework.apollo</groupId>
+            <artifactId>apollo-client</artifactId>
+            <version>${apollo.version}</version>
+        </dependency>
     </dependencies>
     </dependencyManagement>
 

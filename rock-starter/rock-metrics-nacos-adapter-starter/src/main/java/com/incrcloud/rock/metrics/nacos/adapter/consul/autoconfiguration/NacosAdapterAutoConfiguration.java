@@ -1,4 +1,4 @@
-package com.incrcloud.rock.metrics.nacos.adapter.consul.autoconfigure;
+package com.incrcloud.rock.metrics.nacos.adapter.consul.autoconfiguration;
 
 import com.incrcloud.rock.metrics.nacos.adapter.consul.controller.AgentController;
 import com.incrcloud.rock.metrics.nacos.adapter.consul.controller.ServiceController;
@@ -18,7 +18,7 @@ import org.springframework.util.Assert;
  */
 @Configuration
 @EnableAsync
-public class NacosAdapterAutoConfigure {
+public class NacosAdapterAutoConfiguration {
 
 	@Bean
 	@ConditionalOnMissingBean

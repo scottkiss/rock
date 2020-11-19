@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.incrcloud.rock.metrics.nacos.adapter.consul.autoconfigure.NacosAdapterAutoConfigure
+com.incrcloud.rock.metrics.nacos.adapter.consul.autoconfiguration.NacosAdapterAutoConfiguration
