@@ -8,15 +8,15 @@
 <div align="center">
   
 [![Build Status](https://travis-ci.com/scottkiss/roll.svg?branch=main)](https://travis-ci.com/scottkiss/roll)
-[![GitHub stars](https://img.shields.io/github/forks/scottkiss/rock?logo=github)](https://github.com/scottkiss/rock/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/scottkiss/rock?logo=github)](https://github.com/scottkiss/rock/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/scottkiss/rock?logo=github)](https://github.com/scottkiss/rock/network)
-[![GitHub license](https://img.shields.io/github/forks/scottkiss/rock?logo=github)](https://github.com/scottkiss/rock/blob/main/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/scottkiss/rock?logo=github)](https://github.com/scottkiss/rock/blob/main/LICENSE)
 
 </div>
 
 <div align="center">
   
-Rock - solution for configuration ,discovery, monitoring and tracing of microservices ,to make development process of microservices much easier.
+Rock - solution for configuration ,discovery, monitoring and tracing of microservices.
 
 </div>
 
