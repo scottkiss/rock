@@ -1,15 +1,17 @@
-# Rock
+<p></p>
+<p></p>
 
-![](http://incrcloud.com:8080/rock.jpg)
-
+<p align="center">
+  <img src="http://incrcloud.com:8080/rock.jpg" height="80"/>
+</p>
 
 <div align="center">
-
 [![Build Status](https://travis-ci.com/scottkiss/roll.svg?branch=main)](https://travis-ci.com/scottkiss/roll)
 [![GitHub stars](https://img.shields.io/github/forks/scottkiss/rock?logo=github)](https://github.com/scottkiss/rock/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/scottkiss/rock?logo=github)](https://github.com/scottkiss/rock/network)
 [![GitHub license](https://img.shields.io/github/forks/scottkiss/rock?logo=github)](https://github.com/scottkiss/rock/blob/main/LICENSE)
-
+</div>
+<div align="center">
 Rock - solution for configuration ,discovery, monitoring and tracing of microservices ,to make development process of microservices much easier.
 </div>
 
