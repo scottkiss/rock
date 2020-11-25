@@ -20,7 +20,6 @@ import java.util.stream.Collectors;
  * @date 2020/11/13
  */
 @Component
-@RequiredArgsConstructor
 @Slf4j
 public class RegistrationService {
 
@@ -30,7 +29,8 @@ public class RegistrationService {
 		throw new IllegalStateException("Duplicate key");
 	};
 
-	private final DiscoveryClient discoveryClient;
+	@Autowired
+	private DiscoveryClient discoveryClient;
 
 	public Single<ChangeItem<Map<String, String[]>>> getServiceNames() {
 		return returnDeferred(

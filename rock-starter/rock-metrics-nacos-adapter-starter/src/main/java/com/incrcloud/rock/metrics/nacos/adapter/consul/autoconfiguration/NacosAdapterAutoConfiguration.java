@@ -3,6 +3,7 @@ package com.incrcloud.rock.metrics.nacos.adapter.consul.autoconfiguration;
 import com.incrcloud.rock.metrics.nacos.adapter.consul.controller.AgentController;
 import com.incrcloud.rock.metrics.nacos.adapter.consul.controller.ServiceController;
 import com.incrcloud.rock.metrics.nacos.adapter.consul.service.RegistrationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.context.annotation.Bean;
@@ -34,10 +35,8 @@ public class NacosAdapterAutoConfiguration {
 
 	@Bean
 	@ConditionalOnMissingBean
-	public RegistrationService registrationService(DiscoveryClient discoveryClient) {
-		Assert.isTrue(discoveryClient instanceof DiscoveryClient,
-				"Instance Registry must be of type" + DiscoveryClient.class.getName());
-		return new RegistrationService(discoveryClient);
+	public RegistrationService registrationService() {
+		return new RegistrationService();
 	}
 
 }

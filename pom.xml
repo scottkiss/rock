@@ -13,6 +13,7 @@
     <modules>
         <module>rock-dependencies</module>
         <module>rock-starter</module>
+        <module>rock-common</module>
     </modules>
     <parent>
         <groupId>com.alibaba.cloud</groupId>
