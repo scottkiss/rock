@@ -1,4 +1,0 @@
-org.springframework.context.ApplicationContextInitializer=\
-com.incrcloud.rock.environment.context.RockEnvApplicationContextInitializer
-org.springframework.boot.env.EnvironmentPostProcessor=\
- com.incrcloud.rock.environment.context.RockEnvPostProcessor

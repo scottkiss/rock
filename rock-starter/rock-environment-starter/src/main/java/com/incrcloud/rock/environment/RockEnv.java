@@ -4,7 +4,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.InitializingBean;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,9 +16,17 @@ import java.util.Properties;
  * @author sirk
  * @date 2020/11/25
  */
-public class RockEnv implements InitializingBean {
+public class RockEnv {
 
 	private static final Logger LOG = LoggerFactory.getLogger(RockEnv.class);
+
+	private static final RockEnv INSTANCE = new RockEnv();
+
+	private RockEnv() {
+		initDomain();
+		initZone();
+		initEnv();
+	}
 
 	/**
 	 * application id
@@ -40,6 +47,10 @@ public class RockEnv implements InitializingBean {
 	 * environment
 	 */
 	private String env;
+
+	public static RockEnv getInstance() {
+		return INSTANCE;
+	}
 
 	private String getEnvPropValue(String key) throws Exception {
 		String value = System.getProperty(key);
@@ -94,13 +105,6 @@ public class RockEnv implements InitializingBean {
 				: RockEnvConstant.SERVER_PROPERTIES_PATH_LINUX;
 	}
 
-	@Override
-	public void afterPropertiesSet() throws Exception {
-		initDomain();
-		initZone();
-		initEnv();
-	}
-
 	private void initDomain() {
 		try {
 			this.domain = getEnvPropValue(RockEnvConstant.DOMAIN_NAME);
@@ -126,7 +130,8 @@ public class RockEnv implements InitializingBean {
 			LOG.info("Initialize zone failed,use empty zone");
 		}
 		if (StringUtils.isBlank(this.zone)) {
-			System.setProperty(RockEnvConstant.ZONE_NAME, StringUtils.EMPTY);
+			this.zone = RockEnvConstant.DEFAULT_ZONE_VALUE;
+			System.setProperty(RockEnvConstant.ZONE_NAME, this.zone);
 		}
 		else {
 			System.setProperty(RockEnvConstant.ZONE_NAME, this.zone);
@@ -138,13 +143,14 @@ public class RockEnv implements InitializingBean {
 	private void initEnv() {
 		try {
 			this.env = getEnvPropValue(RockEnvConstant.ENV_NAME);
+			LOG.info("Initialize env :{}", this.env);
 		}
 		catch (Exception e) {
 			LOG.info("Initialize env failed,use dev environment");
 		}
 		if (StringUtils.isBlank(this.env)) {
-			System.setProperty(RockEnvConstant.ENV_NAME,
-					RockEnvironmentEnum.DEV.getEnv());
+			this.env = RockEnvironmentEnum.DEV.getEnv();
+			System.setProperty(RockEnvConstant.ENV_NAME, this.env);
 		}
 		else {
 			System.setProperty(RockEnvConstant.ENV_NAME, this.env);

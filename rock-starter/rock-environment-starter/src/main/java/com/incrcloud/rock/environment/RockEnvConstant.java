@@ -18,6 +18,8 @@ public class RockEnvConstant {
 
 	public static final String ENV_NAME = "env";
 
+	public static final String DEFAULT_ZONE_VALUE = "DEFAULT_GROUP";
+
 	public static String DEFAULT_DOMAIN_VALUE = "incrcloud.com";
 
 	public static final String ROCK_DOMAIN_NAME = "rock.domain";

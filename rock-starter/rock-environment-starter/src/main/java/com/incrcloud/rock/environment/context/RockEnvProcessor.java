@@ -1,9 +1,5 @@
 package com.incrcloud.rock.environment.context;
 
-import com.incrcloud.rock.environment.RockEnv;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.ConfigurableEnvironment;
 
 /**
@@ -14,15 +10,16 @@ import org.springframework.core.env.ConfigurableEnvironment;
  */
 public abstract class RockEnvProcessor {
 
-	private static final Logger LOG = LoggerFactory.getLogger(RockEnvProcessor.class);
-
-	@Autowired
-	private RockEnv rockEnv;
-
 	public void process(ConfigurableEnvironment environment) {
-		String env = rockEnv.getEnv();
-		LOG.info("Current is {} environment", env);
-
+		doProcess(environment);
 	}
+
+	/**
+	 * do process
+     *
+     * @param environment
+     * @return void
+	 */
+	public abstract void doProcess(ConfigurableEnvironment environment);
 
 }

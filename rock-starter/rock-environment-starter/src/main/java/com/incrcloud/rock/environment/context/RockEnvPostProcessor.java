@@ -14,7 +14,7 @@ import org.springframework.core.env.StandardEnvironment;
  * @author sirk
  * @date 2020/11/25
  */
-public class RockEnvPostProcessor extends RockEnvProcessor
+public abstract class RockEnvPostProcessor extends RockEnvProcessor
 		implements EnvironmentPostProcessor {
 
 	private static final Logger LOG = LoggerFactory.getLogger(RockEnvPostProcessor.class);
