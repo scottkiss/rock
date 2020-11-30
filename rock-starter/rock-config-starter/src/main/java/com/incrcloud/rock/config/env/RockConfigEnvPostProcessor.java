@@ -22,9 +22,8 @@ public class RockConfigEnvPostProcessor extends RockEnvPostProcessor implements 
 	public void doProcess(ConfigurableEnvironment environment) {
 		RockEnv rockEnv = RockEnv.getInstance();
 		setIfNull("spring.cloud.nacos.config.namespace", rockEnv.getEnv(), environment);
-		setIfNull("spring.cloud.nacos.config.group", rockEnv.getZone(), environment);
+		setIfNull("spring.cloud.nacos.config.group", rockEnv.getGroup(), environment);
 		LOG.info("set namespace:{}", rockEnv.getEnv());
-
 	}
 
 	private void setIfNull(String key, String value,

@@ -23,9 +23,9 @@ public class RockEnv {
 	private static final RockEnv INSTANCE = new RockEnv();
 
 	private RockEnv() {
-		initDomain();
-		initZone();
+		initGroup();
 		initEnv();
+		initEnvTag();
 	}
 
 	/**
@@ -34,19 +34,19 @@ public class RockEnv {
 	private String appId;
 
 	/**
-	 * domain
+	 * group
 	 */
-	private String domain;
-
-	/**
-	 * zone
-	 */
-	private String zone;
+	private String group;
 
 	/**
 	 * environment
 	 */
 	private String env;
+
+	/**
+	 * environment tag for multipart environments
+	 */
+	private String envTag;
 
 	public static RockEnv getInstance() {
 		return INSTANCE;
@@ -92,12 +92,16 @@ public class RockEnv {
 		this.appId = appId;
 	}
 
-	public String getZone() {
-		return this.zone;
+	public String getGroup() {
+		return this.group;
 	}
 
 	public String getEnv() {
 		return this.env;
+	}
+
+	public String getEnvTag() {
+		return this.envTag;
 	}
 
 	private String getServerPropertiesFilePath() {
@@ -105,39 +109,22 @@ public class RockEnv {
 				: RockEnvConstant.SERVER_PROPERTIES_PATH_LINUX;
 	}
 
-	private void initDomain() {
+	private void initGroup() {
 		try {
-			this.domain = getEnvPropValue(RockEnvConstant.DOMAIN_NAME);
+			this.group = getEnvPropValue(RockEnvConstant.GROUP_NAME);
 		}
 		catch (Exception e) {
-			LOG.info("Initialize domain failed, use default domain={}",
-					RockEnvConstant.DEFAULT_DOMAIN_VALUE);
+			LOG.info("Initialize group failed,use default group");
 		}
-
-		if (StringUtils.isBlank(this.domain)) {
-			this.domain = RockEnvConstant.DEFAULT_DOMAIN_VALUE;
-		}
-		System.setProperty(RockEnvConstant.DOMAIN_NAME, this.domain);
-		// for discovery metadata
-		System.setProperty(RockEnvConstant.ROCK_DOMAIN_NAME, this.domain);
-	}
-
-	private void initZone() {
-		try {
-			this.zone = getEnvPropValue(RockEnvConstant.ZONE_NAME);
-		}
-		catch (Exception e) {
-			LOG.info("Initialize zone failed,use empty zone");
-		}
-		if (StringUtils.isBlank(this.zone)) {
-			this.zone = RockEnvConstant.DEFAULT_ZONE_VALUE;
-			System.setProperty(RockEnvConstant.ZONE_NAME, this.zone);
+		if (StringUtils.isBlank(this.group)) {
+			this.group = RockEnvConstant.DEFAULT_GROUP_VALUE;
+			System.setProperty(RockEnvConstant.GROUP_NAME, this.group);
 		}
 		else {
-			System.setProperty(RockEnvConstant.ZONE_NAME, this.zone);
+			System.setProperty(RockEnvConstant.GROUP_NAME, this.group);
 		}
 		// for discovery metadata
-		System.setProperty(RockEnvConstant.ROCK_ZONE_NAME, this.zone);
+		System.setProperty(RockEnvConstant.ROCK_GROUP_NAME, this.group);
 	}
 
 	private void initEnv() {
@@ -157,6 +144,23 @@ public class RockEnv {
 		}
 		// for discovery metadata
 		System.setProperty(RockEnvConstant.ROCK_ENV_NAME, this.env);
+	}
+
+	private void initEnvTag() {
+		try {
+			this.envTag = getEnvPropValue(RockEnvConstant.ENV_TAG_NAME);
+		}
+		catch (Exception e) {
+			LOG.info("Initialize env tag failed,use default env tag");
+		}
+		if (StringUtils.isBlank(this.envTag)) {
+			this.envTag = RockEnvConstant.DEFAULT_ENV_TAG_VALUE;
+			System.setProperty(RockEnvConstant.ENV_TAG_NAME, this.envTag);
+		}
+		else {
+			System.setProperty(RockEnvConstant.ENV_TAG_NAME, this.envTag);
+		}
+
 	}
 
 }

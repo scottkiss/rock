@@ -12,20 +12,18 @@ public class RockEnvConstant {
 
 	public static final String SERVER_PROPERTIES_PATH_LINUX = "/opt/settings/server.properties";
 
-	public static final String DOMAIN_NAME = "domain";
-
-	public static final String ZONE_NAME = "zone";
+	public static final String GROUP_NAME = "group";
 
 	public static final String ENV_NAME = "env";
 
-	public static final String DEFAULT_ZONE_VALUE = "DEFAULT_GROUP";
+	public static final String DEFAULT_GROUP_VALUE = "DEFAULT_GROUP";
 
-	public static String DEFAULT_DOMAIN_VALUE = "incrcloud.com";
-
-	public static final String ROCK_DOMAIN_NAME = "rock.domain";
-
-	public static final String ROCK_ZONE_NAME = "rock.zone";
+	public static final String ROCK_GROUP_NAME = "rock.group";
 
 	public static final String ROCK_ENV_NAME = "rock.env";
+
+	public static final String ENV_TAG_NAME = "env_tag";
+
+	public static final String DEFAULT_ENV_TAG_VALUE = "default";
 
 }

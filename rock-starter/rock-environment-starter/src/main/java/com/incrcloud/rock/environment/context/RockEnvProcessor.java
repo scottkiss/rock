@@ -16,9 +16,8 @@ public abstract class RockEnvProcessor {
 
 	/**
 	 * do process
-     *
-     * @param environment
-     * @return void
+	 * @param environment
+	 * @return void
 	 */
 	public abstract void doProcess(ConfigurableEnvironment environment);
 
