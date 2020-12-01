@@ -1,5 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.incrcloud.rock.config.env.autoconfiguration.RockConfigEnvAutoConfiguration
-
 org.springframework.boot.env.EnvironmentPostProcessor=\
   com.incrcloud.rock.config.env.RockConfigEnvPostProcessor

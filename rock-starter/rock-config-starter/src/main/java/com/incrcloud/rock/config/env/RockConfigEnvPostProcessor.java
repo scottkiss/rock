@@ -1,6 +1,7 @@
 package com.incrcloud.rock.config.env;
 
 import com.incrcloud.rock.environment.RockEnv;
+import com.incrcloud.rock.environment.RockEnvConstant;
 import com.incrcloud.rock.environment.context.RockEnvPostProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +23,17 @@ public class RockConfigEnvPostProcessor extends RockEnvPostProcessor implements 
 	public void doProcess(ConfigurableEnvironment environment) {
 		RockEnv rockEnv = RockEnv.getInstance();
 		setIfNull("spring.cloud.nacos.config.namespace", rockEnv.getEnv(), environment);
-		setIfNull("spring.cloud.nacos.config.group", rockEnv.getGroup(), environment);
+		boolean isEnableMultiConfig = "true"
+				.equalsIgnoreCase(environment.getProperty("rock.multi.env.config"));
+		// Enable multipart environments config
+		if (!RockEnv.getInstance().getEnvTag()
+				.equals(RockEnvConstant.DEFAULT_ENV_TAG_VALUE) && isEnableMultiConfig) {
+			setIfNull("spring.cloud.nacos.config.group",
+					rockEnv.getGroup() + "-" + rockEnv.getEnvTag(), environment);
+		}
+		else {
+			setIfNull("spring.cloud.nacos.config.group", rockEnv.getGroup(), environment);
+		}
 		LOG.info("set namespace:{}", rockEnv.getEnv());
 	}
 
